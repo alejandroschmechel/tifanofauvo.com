@@ -8,21 +8,26 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
-$app->get('/', function () use ($app) {
-
-    return $app['twig']->render('index.html', array());
+$app->get('/', function (Request $request) use ($app) {
+    return $app['twig']->render('index.html', array('base' => $request->getBasePath()));
 })
 ->bind('homepage')
 ;
 
 
 $app->get('/to_tifanofauvo',function (Request $request) use ($app){
-    $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c'];
-    $replacer = ['f','f','va','f','f','f','fi','f','f','f','f'];
+    $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c', 'z'];
+    $replacer = ['f','f','fa','f','v','fu','fi','f','f','f','f', 'v'];
     $originalText = $request->query->get('text');
 
     $translated = str_replace($words, $replacer, $originalText);
-    return $app['twig']->render('index.html', array('translated' => $translated, 'original' => $originalText));
+    return $app['twig']->render('index.html',
+        array(
+            'translated' => $translated,
+            'original' => $originalText,
+            'base' => $request->getBasePath()
+        )
+    );
 });
 
 
