@@ -20,8 +20,8 @@ $app->get('/to_tifanofauvo',function (Request $request) use ($app){
     $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c'];
     $replacer = ['f','f','va','f','f','f','fi','f','f','f','f'];
 
-    echo var_dump(str_replace($words, $replacer, $request->query->get('text')));
-    
+    $translated = str_replace($words, $replacer, $request->query->get('text'));
+    return $app['twig']->render('result.html', array('translated' => $translated));
 });
 
 
