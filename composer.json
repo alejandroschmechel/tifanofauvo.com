@@ -6,7 +6,6 @@
     "require": {
         "php": ">=5.5.9",
         "silex/silex": "~2.0@dev",
-        "silex/web-profiler": "~2.0@dev",
         "symfony/browser-kit": "~2.6",
         "symfony/class-loader": "~2.6",
         "symfony/config": "~2.6",
