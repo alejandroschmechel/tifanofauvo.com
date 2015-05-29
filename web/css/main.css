@@ -1,0 +1,43 @@
+body {
+	background-color: #E8E607;
+	font-family: 'Rock Salt', cursive;
+}
+
+img.displayed {
+    max-width: 100%;
+	z-index: -100;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+
+textarea {
+	width: 500px;
+	height: 300px;
+}
+.header{
+	font-size: 32px;
+	margin-left: 35%;
+}
+
+.headline {
+	margin-left: 26%;
+}
+
+#container {
+	width: auto;
+	margin-left: 26%;
+	height: 800px;
+}
+#formContainer {
+	float: left;
+	height: 400px;
+	width: auto;
+}
+
+#twitterFeed{
+	float: left;
+	width: 400px;
+	margin-left: 54%;
+	margin-top: -36.2%;
+}

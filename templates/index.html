@@ -1,5 +1,22 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    Welcome to your new Silex Application!
+    <img class="displayed" src="{{ asset('img/tifanofauvo.jpg') }}">
+    <h1 class="header">Tfadutof Tifanofauvo</h1>
+
+    <h3 class="headline">Traduza frases e textos para a língua do tifanofauvo</h3>
+
+    <div id="container">
+	    <div id="formContainer">
+	    	<label>Tefto Oviginaf</label><br/>
+	    	<textarea id="inputText"></textarea><br/><br/>
+
+	    	<label>Tefto Tfaduzidof</label><br/>
+	    	<textarea id="outputText"></textarea><br/><br/>
+	    </div>
+
+	    <div id="twitterFeed">
+	    	  <a class="twitter-timeline" href="https://twitter.com/tifanofauvovex" data-widget-id="604091837264056322"></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+	    </div>
+    </div>
 {% endblock %}
