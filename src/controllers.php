@@ -9,10 +9,21 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 $app->get('/', function () use ($app) {
+
     return $app['twig']->render('index.html', array());
 })
 ->bind('homepage')
 ;
+
+
+$app->get('/to_tifanofauvo',function (Request $request) use ($app){
+    $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c'];
+    $replacer = ['f','f','va','f','f','f','fi','f','f','f','f'];
+
+    echo var_dump(str_replace($words, $replacer, $request->query->get('text')));
+    
+});
+
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
