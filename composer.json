@@ -19,7 +19,8 @@
         "symfony/security": "~2.6",
         "symfony/translation": "~2.6",
         "symfony/twig-bridge": "~2.6",
-        "symfony/validator": "~2.6"
+        "symfony/validator": "~2.6",
+        "guzzlehttp/guzzle": "^6.0"
     },
     "autoload": {
         "psr-0": { "": "src/" }

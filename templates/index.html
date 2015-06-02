@@ -8,6 +8,8 @@
 	    	<input type="submit" value="Enfiarf"><br/>
             <label>Tefto Tfaduvido</label><br/>
             <textarea id="outputText">{{ translated | default("") }}</textarea><br/>
+            <a href="">Ouvir Tefto</a>
+            <audio preload="auto" controls><source src="{{ audioStream | default("") }}" type="audio/mp3">Your browser does not support the audio element.</audio>
     	</form>
     </div>
 {% endblock %}

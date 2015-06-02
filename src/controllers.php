@@ -19,17 +19,19 @@ $app->get('/to_tifanofauvo',function (Request $request) use ($app){
     $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c', 'z'];
     $replacer = ['f','f','fa','f','v','fu','fi','f','f','f','f', 'v'];
     $originalText = $request->query->get('text');
-
     $translated = str_replace($words, $replacer, $originalText);
+
+    $urlToSend = sprintf('http://translate.google.com/translate_tts?ie=UTF-8&q=%s&tl=pt-br', $translated);
+    
     return $app['twig']->render('index.html',
         array(
             'translated' => $translated,
             'original' => $originalText,
-            'base' => $request->getBasePath()
+            'base' => $request->getBasePath(),
+            'audioStream' => $urlToSend
         )
     );
 });
-
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
