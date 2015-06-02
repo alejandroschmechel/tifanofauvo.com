@@ -106,3 +106,31 @@ textarea {
 		box-shadow:4px 4px 10px rgba(0,0,0,0.8);
 	}
 }
+
+#number{
+	width: 30px;
+}
+
+#topBannerContainer{
+	margin-left: 27%;
+}
+
+#bottomBannerContainer{
+	margin-left: 26%;
+}
+
+#topTBannerContainer{
+	position: absolute;
+	top: 5px;
+	left: 20px;
+}
+
+#bottomTSquareBannerContainer{
+	margin-top: 10px;
+	margin-left: 15%;
+}
+
+#bottomTBannerContainer{
+	margin-top: 120px;
+	margin-bottom: 10px;
+}

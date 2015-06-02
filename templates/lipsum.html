@@ -4,7 +4,7 @@
 	<div id="topTBannerContainer">
 		<script type="text/javascript">
 			bb_bid = "1703328";
-			bb_lang = "en-US";
+			bb_lang = "pt-br";
 			bb_name = "custom";
 			bb_limit = "9";
 			bb_format = "bbo";
@@ -21,30 +21,34 @@
 		</script>
 		<script type="text/javascript" src="//static.boo-box.com/javascripts/embed.js"></script>
 	</div>
-	<h1 class="header">Tfadutof Tifanofauvo</h1>
+	<h1 class="header">Lorem iffum do Tifanofauvo</h1>
 
-        <h3 class="headline">Tvaduza fvafef e teftof fava a línfa do tifanofauvo</h3>
+        <h3 class="headline">Gere lorem iffum do tifanofauvo</h3>
 {% endblock %}
 
 {% block content %}
     <div id="formContainer">
-    	<form method="GET" action="{{ base ~ '/index.php/to_tifanofauvo' }}">
-	    	<label>Tefto Oviginaf</label><br/>
-	    	<textarea id="text" name="text">{{ original | default("") }}</textarea><br/>
-	    	<input type="submit" value="Enfiarf"><br/>
-            <label>Tefto Tfaduvido</label><br/>
-            <textarea id="outputText">{{ translated | default("") }}</textarea><br/>
+    	<form method="GET" action="{{ base ~ '/index.php/lipsum' }}">
+	    	<input type="number" name="number" id="number" min="1" max="50"/>
+	    	 <select id="type" name="type">
+				<option value="words" selected>Falavfaf (Palavras)</option>
+				<option value="phrases">Fvafefv (Frases)</option>
+				<option value="paragraphs">Pavafrafof (Parágrafos)</option>
+			</select> 
+	    	<input type="submit" value="Gerar Lorem iffum"><br/>
+            <label>Lorem iffum</label><br/>
+            <textarea id="loremOutput">{{ lorem|raw }}</textarea><br/>
     	</form>
 
-    	<div id="bottomTBannerContainer">
+    	<div id="bottomTSquareBannerContainer">
 			<script type="text/javascript">
 				bb_bid = "1703328";
 				bb_lang = "pt-br";
 				bb_name = "custom";
-				bb_limit = "8";
-				bb_format = "bbb";
+				bb_limit = "9";
+				bb_format = "bbo";
 			</script>
-			<script type="text/javascript" src="//static.boo-box.com/javascripts/embed.js"></script>
+			<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
 		</div>
     </div>
 {% endblock %}

@@ -11,16 +11,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 $app->get('/', function (Request $request) use ($app) {
     return $app['twig']->render('index.html', array('base' => $request->getBasePath()));
 })
-->bind('homepage')
-;
-
+->bind('homepage');
 
 $app->get('/to_tifanofauvo',function (Request $request) use ($app){
-    $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c', 'z'];
-    $replacer = ['f','f','fa','f','v','fu','fi','f','f','f','f', 'v'];
     $originalText = $request->query->get('text');
 
-    $translated = str_replace($words, $replacer, $originalText);
+    $translated = toTifanofauvo($originalText);
     return $app['twig']->render('index.html',
         array(
             'translated' => $translated,
@@ -30,6 +26,44 @@ $app->get('/to_tifanofauvo',function (Request $request) use ($app){
     );
 });
 
+$app->get('/dino_info',function (Request $request) use ($app){
+    return $app['twig']->render('info.html',
+        array(
+            'base' => $request->getBasePath()
+        )
+    );
+});
+
+$app->get('/lipsum',function (Request $request) use ($app){
+    $faker = Faker\Factory::create();
+    $type = $request->query->get('type');
+    $number = $request->query->get('number');
+
+    switch ($type) {
+        case 'paragraphs':
+            $generated = $faker->paragraphs($number);
+            $imploder = '&#10;';
+            break;
+        case 'phrases':
+            $generated = $faker->sentences($number);
+            $imploder = ' ';
+            break;
+        case 'words':
+            $generated = $faker->words($number);
+            $imploder = ' ';
+            break;
+        default:
+            $generated = '';
+            $imploder = '';
+            break;
+    }
+    return $app['twig']->render('lipsum.html',
+        array(
+            'base' => $request->getBasePath(),
+            'lorem' => $generated != '' ? toTifanofauvo(implode($imploder, $generated)) : ''
+        )
+    );
+});
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
@@ -46,3 +80,10 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
+
+function toTifanofauvo($originalText){
+    $words = ['ss','s','ra','p','j','gu','ci','g','qu','x','c', 'z'];
+    $replacer = ['f','f','fa','f','v','fu','fi','f','f','f','f', 'v'];
+
+    return str_replace($words, $replacer, $originalText);
+}
